@@ -1,6 +1,4 @@
 from pathlib import Path
-from typing import Literal
-
 from cog import BasePredictor, Input, Path as CogPath
 
 from image_prep import prepare_reference_image
@@ -10,8 +8,9 @@ class Predictor(BasePredictor):
     def predict(
         self,
         image: CogPath = Input(description="Authorized portrait reference image (JPG, PNG, or WebP)."),
-        size: Literal[512, 768, 1024] = Input(
+        size: int = Input(
             default=1024,
+            choices=[512, 768, 1024],
             description="Square PNG output size in pixels."
         ),
         focus_x: float = Input(
@@ -30,4 +29,3 @@ class Predictor(BasePredictor):
         output = Path("/tmp/livefaceswap-reference.png")
         prepare_reference_image(Path(image), output, int(size), focus_x, focus_y)
         return CogPath(output)
-
