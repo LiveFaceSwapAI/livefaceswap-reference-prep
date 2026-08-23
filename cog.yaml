@@ -1,0 +1,7 @@
+build:
+  python_version: "3.11"
+  python_packages:
+    - "pillow==11.3.0"
+
+predict: "predict.py:Predictor"
+

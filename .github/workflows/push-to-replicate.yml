@@ -1,0 +1,19 @@
+name: Push to Replicate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: replicate/setup-cog@v2
+        with:
+          token: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
+      - name: Push model
+        run: cog push r8.im/cabbagehao/livefaceswap-reference-prep
+
