@@ -29,3 +29,26 @@ jobs:
             org.opencontainers.image.url=https://livefaceswap.ai/
             org.opencontainers.image.description=Prepare authorized portrait reference images as square RGB PNG files
             org.opencontainers.image.licenses=MIT
+      - name: Sync Docker Hub overview
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: |
+          auth_response=$(curl --fail --silent --show-error \
+            --request POST \
+            --header 'Content-Type: application/json' \
+            --data "$(jq -nc --arg username "$DOCKERHUB_USERNAME" --arg password "$DOCKERHUB_TOKEN" '{username:$username,password:$password}')" \
+            https://hub.docker.com/v2/users/login/)
+          access_token=$(jq -r '.token // .access_token // empty' <<<"$auth_response")
+          test -n "$access_token"
+          payload=$(jq -nc \
+            --arg description 'Reference image preparation CLI and container for authorized portrait workflows.' \
+            --rawfile full_description README.md \
+            '{description:$description,full_description:$full_description}')
+          curl --fail --silent --show-error \
+            --request PATCH \
+            --header "Authorization: JWT $access_token" \
+            --header 'Content-Type: application/json' \
+            --data "$payload" \
+            https://hub.docker.com/v2/repositories/cabbagehao/livefaceswap-reference-prep/ \
+            >/dev/null
