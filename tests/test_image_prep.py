@@ -2,7 +2,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from image_prep import prepare_reference_image
+from livefaceswap_reference_prep import prepare_reference, prepare_reference_image
 
 
 def test_prepare_reference_image_creates_square_rgb_png(tmp_path: Path) -> None:
@@ -31,3 +31,11 @@ def test_prepare_reference_image_rejects_invalid_focus(tmp_path: Path) -> None:
     else:
         raise AssertionError("invalid focus must be rejected")
 
+
+def test_prepare_reference_returns_square_rgb_image() -> None:
+    source = Image.new("RGBA", (900, 1200), (12, 34, 56, 120))
+
+    output = prepare_reference(source, 768, 0.4, 0.5)
+
+    assert output.mode == "RGB"
+    assert output.size == (768, 768)

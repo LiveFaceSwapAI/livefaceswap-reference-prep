@@ -23,6 +23,20 @@ Only process images you have permission to use, and do not use portrait referenc
 cog predict -i image=@portrait.jpg -i size=1024 -i focus_x=0.5 -i focus_y=0.42
 ```
 
+Install the Python package locally and use the CLI:
+
+```bash
+python -m pip install .
+livefaceswap-reference-prep portrait.jpg prepared.png --size 1024
+```
+
+Run the Streamlit application:
+
+```bash
+python -m pip install -r requirements.txt
+streamlit run app.py
+```
+
 ## License
 
 MIT

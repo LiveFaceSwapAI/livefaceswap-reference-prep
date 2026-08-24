@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "livefaceswap-reference-prep"
+version = "0.1.0"
+description = "Deterministic portrait reference image normalization and square cropping"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "LiveFaceSwap AI", email = "support@livefaceswap.ai" }]
+keywords = ["portrait", "image-processing", "reference-image", "pillow"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+]
+dependencies = ["pillow==11.3.0"]
+
+[project.urls]
+Homepage = "https://livefaceswap.ai/"
+Source = "https://github.com/LiveFaceSwapAI/livefaceswap-reference-prep"
+Issues = "https://github.com/LiveFaceSwapAI/livefaceswap-reference-prep/issues"
+
+[project.scripts]
+livefaceswap-reference-prep = "livefaceswap_reference_prep.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["livefaceswap_reference_prep"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
