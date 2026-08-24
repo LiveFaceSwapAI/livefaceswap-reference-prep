@@ -37,6 +37,16 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
+Run the published container with mounted input and output directories:
+
+```bash
+docker run --rm \
+  -v "$PWD/input:/input:ro" \
+  -v "$PWD/output:/output" \
+  ghcr.io/livefaceswapai/livefaceswap-reference-prep:latest \
+  /input/portrait.jpg /output/prepared.png --size 1024
+```
+
 ## License
 
 MIT
