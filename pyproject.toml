@@ -4,15 +4,24 @@ build-backend = "hatchling.build"
 
 [project]
 name = "livefaceswap-reference-prep"
-version = "0.1.0"
-description = "Deterministic portrait reference image normalization and square cropping"
+version = "0.1.1"
+description = "Prepare authorized portrait reference images for LiveFaceSwap AI face swap workflows"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 authors = [{ name = "LiveFaceSwap AI", email = "support@livefaceswap.ai" }]
-keywords = ["portrait", "image-processing", "reference-image", "pillow"]
+keywords = [
+  "livefaceswap",
+  "face-swap",
+  "live-face-swap",
+  "portrait",
+  "image-processing",
+  "reference-image",
+  "pillow",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Topic :: Multimedia :: Graphics :: Graphics Conversion",
@@ -21,6 +30,8 @@ dependencies = ["pillow==11.3.0"]
 
 [project.urls]
 Homepage = "https://livefaceswap.ai/"
+"Streamlit App" = "https://livefaceswap-reference-prep.streamlit.app/"
+Documentation = "https://github.com/LiveFaceSwapAI/livefaceswap-reference-prep#readme"
 Source = "https://github.com/LiveFaceSwapAI/livefaceswap-reference-prep"
 Issues = "https://github.com/LiveFaceSwapAI/livefaceswap-reference-prep/issues"
 

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">LiveFaceSwap AI reference image preparation workflow</title>
+  <desc id="desc">An authorized portrait is corrected and square cropped into a normalized PNG, then used as a reference in LiveFaceSwap AI.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07131f"/>
+      <stop offset="1" stop-color="#16102d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#21d4bd"/>
+      <stop offset="1" stop-color="#7b61ff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="480" rx="28" fill="url(#bg)"/>
+  <text x="600" y="60" fill="#fff" font-family="Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Where reference prep fits in a live face swap workflow</text>
+  <g transform="translate(85 105)">
+    <rect width="250" height="250" rx="22" fill="#11283a" stroke="#2f526c" stroke-width="3"/>
+    <g transform="translate(125 112) rotate(-9)">
+      <rect x="-72" y="-80" width="144" height="160" rx="12" fill="#dce9ee"/>
+      <circle cy="-27" r="34" fill="#7fb5c8"/>
+      <path d="M-58 72c7-49 30-72 58-72s51 23 58 72" fill="#7fb5c8"/>
+    </g>
+    <text x="125" y="218" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Authorized portrait</text>
+    <text x="125" y="246" fill="#a9c0d0" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">JPG · PNG · WebP</text>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M365 230h80"/><path d="m430 210 22 20-22 20"/>
+  </g>
+  <g transform="translate(475 105)">
+    <rect width="250" height="250" rx="22" fill="#11283a" stroke="#2f526c" stroke-width="3"/>
+    <rect x="57" y="28" width="136" height="136" rx="12" fill="#dce9ee" stroke="#21d4bd" stroke-width="5"/>
+    <circle cx="125" cy="78" r="31" fill="#7fb5c8"/>
+    <path d="M73 157c6-44 27-65 52-65s46 21 52 65" fill="#7fb5c8"/>
+    <path d="M58 55v-27h27M165 28h28v27M193 137v27h-28M85 164H58v-27" fill="none" stroke="#21d4bd" stroke-width="5"/>
+    <text x="125" y="218" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Normalized PNG</text>
+    <text x="125" y="246" fill="#a9c0d0" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Rotate · RGB · crop · resize</text>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M755 230h80"/><path d="m820 210 22 20-22 20"/>
+  </g>
+  <g transform="translate(865 105)">
+    <rect width="250" height="250" rx="22" fill="#11283a" stroke="#2f526c" stroke-width="3"/>
+    <path d="M65 78c18-21 102-21 120 0l-15 75c-6 22-34 22-45 4-11 18-39 18-45-4z" fill="url(#accent)" filter="url(#glow)"/>
+    <path d="M85 98c17-8 31-5 38 8-9 13-24 17-42 7zM165 98c-17-8-31-5-38 8 9 13 24 17 42 7z" fill="#07131f"/>
+    <text x="125" y="218" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">LiveFaceSwap AI</text>
+    <text x="125" y="246" fill="#a9c0d0" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Use as the reference image</text>
+  </g>
+  <text x="600" y="425" fill="#a9c0d0" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Reference preparation happens before the face swap model; it does not replace a face by itself.</text>
+</svg>

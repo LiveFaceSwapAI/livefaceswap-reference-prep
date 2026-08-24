@@ -27,5 +27,6 @@ jobs:
           labels: |
             org.opencontainers.image.source=https://github.com/LiveFaceSwapAI/livefaceswap-reference-prep
             org.opencontainers.image.url=https://livefaceswap.ai/
-            org.opencontainers.image.description=Prepare authorized portrait reference images as square RGB PNG files
+            org.opencontainers.image.title=LiveFaceSwap AI Face Swap Reference Image Prep
+            org.opencontainers.image.description=Prepare authorized portrait reference images for LiveFaceSwap AI face swap workflows
             org.opencontainers.image.licenses=MIT

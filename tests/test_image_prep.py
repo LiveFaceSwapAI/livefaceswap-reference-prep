@@ -39,3 +39,32 @@ def test_prepare_reference_returns_square_rgb_image() -> None:
 
     assert output.mode == "RGB"
     assert output.size == (768, 768)
+
+
+def test_prepare_reference_applies_exif_orientation() -> None:
+    source = Image.new("RGB", (40, 20), "blue")
+    for x in range(20):
+        for y in range(20):
+            source.putpixel((x, y), (255, 0, 0))
+    source.getexif()[274] = 6
+
+    output = prepare_reference(source, 512, 0.5, 0.0)
+
+    assert output.mode == "RGB"
+    assert output.size == (512, 512)
+    assert output.getpixel((256, 256)) == (255, 0, 0)
+
+
+def test_prepared_png_does_not_copy_source_metadata(tmp_path: Path) -> None:
+    source_path = tmp_path / "source.jpg"
+    output_path = tmp_path / "output.png"
+    source = Image.new("RGB", (40, 60), "white")
+    exif = source.getexif()
+    exif[270] = "synthetic metadata"
+    source.save(source_path, exif=exif)
+
+    prepare_reference_image(source_path, output_path, 512, 0.5, 0.5)
+
+    with Image.open(output_path) as output:
+        assert output.getexif().get(270) is None
+        assert "exif" not in output.info
