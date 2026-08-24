@@ -30,3 +30,11 @@ jobs:
             org.opencontainers.image.title=LiveFaceSwap AI Face Swap Reference Image Prep
             org.opencontainers.image.description=Prepare authorized portrait reference images for LiveFaceSwap AI face swap workflows
             org.opencontainers.image.licenses=MIT
+      - name: Update Docker Hub overview and short description
+        uses: peter-evans/dockerhub-description@v5
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: cabbagehao/livefaceswap-reference-prep
+          short-description: LiveFaceSwap AI face-swap reference image prep CLI and container
+          readme-filepath: ./README.md
